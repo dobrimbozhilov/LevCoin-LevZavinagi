@@ -123,13 +123,14 @@ public:
         vSeeds.emplace_back("dnsseed.alltheco.in");
         vSeeds.emplace_back("dnsseed.bushstar.co.uk");
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,14);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,142);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xBC, 0x26};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xDA, 0xEE};
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 55);     // 'L'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 58);     // 'Q'
+        base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1, 183);    // WIF -> '7'
+        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};              // xpub (уникален)
+        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};              // xprv (уникален)
 
-        bech32_hrp = "fc";
+
+        bech32_hrp = "lvc";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -138,19 +139,11 @@ public:
         m_is_test_chain = false;
 
         checkpointData = {
-            {
-                {  22267, uint256S("0x23dc7d871fc2a9b994112e978019f6370bab0b8979f557afe77a7ab620224b70")},
-                {  31846, uint256S("0xba7d5c0e6d46f6448253290ce037e13975c13ca9c375ae854b6b2f85044fc0f9")},
-                {  41300, uint256S("0x8c4e02f6c0d20e856fd7e952a147fee30ce145ca6932a284f354924362d2b408")},
-                { 500000, uint256S("0x2b7ea20e3899deb9591015b0a5a589b9f6032ab82e018014fafe11637b1a2daf")},
-                {1000000, uint256S("0xb9e03dffe6b43cac38191d1bbb0d74fec21223e0de052928c96f498ba305f918")},
-                {1593400, uint256S("0xe97230c788e7240eb325576810fee62f5162905f63a832f15928b88ac6a938c6")},
-                {1776411, uint256S("0x4f6de194bd2f4580e2ac9337289c7cca348d3f35c9079af2760b288315b82feb")},
-                {2124270, uint256S("0x4f6de194bd2f4580e2ac9337289c7cca348d3f35c9079af2760b288315b82feb")},
-                {2745916, uint256S("0x500bc433505075faa45c3dae1eb9d247fef513015573123e41b54abedf30c8d9")},
-                {3275900, uint256S("0xe29c854a0a54ac2c3f6b97e0416a0a7f17df6f80ecf4fa6eb3faa7ec1fceffb6")},
-            }
-        };
+    {
+        { 0, genesis.GetHash() }  // само Genesis блокът
+    }
+};
+
 
         chainTxData = ChainTxData{
             // Data from rpc: getchaintxstats 4096 e29c854a0a54ac2c3f6b97e0416a0a7f17df6f80ecf4fa6eb3faa7ec1fceffb6
