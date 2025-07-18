@@ -87,16 +87,13 @@ endif
 
 if BUILD_BITCOIN_CLI
   bin_PROGRAMS += feathercoin-cli
- 
 endif
-
 if BUILD_BITCOIN_TX
   bin_PROGRAMS += feathercoin-tx
 endif
-
 if ENABLE_WALLET
 if BUILD_BITCOIN_WALLET
-  bin_PROGRAMS += feathercoin-wallet.cpp
+  bin_PROGRAMS += feathercoin-wallet
 endif
 endif
 
