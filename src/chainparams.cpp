@@ -85,28 +85,30 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0x41;
-        pchMessageStart[1] = 0x15;
-        pchMessageStart[2] = 0x1a;
-        pchMessageStart[3] = 0x21;
+        pchMessageStart[0] = 0x4c;   
+        pchMessageStart[1] = 0x56;  
+        pchMessageStart[2] = 0x43;  
+        pchMessageStart[3] = 0x10;  
+
 
         // End of the bridge from old to new pchMessageStart
-        pchMessageStartOld[0] = 0xfb;
-        pchMessageStartOld[1] = 0xc0;
-        pchMessageStartOld[2] = 0xb6;
-        pchMessageStartOld[3] = 0xdb;
+       // pchMessageStartOld[0] = 0xfb;
+       // pchMessageStartOld[1] = 0xc0;
+       // pchMessageStartOld[2] = 0xb6;
+      //  pchMessageStartOld[3] = 0xdb;
 
-        nDefaultPort = 9336;
+        nDefaultPort = 11111;
         nPruneAfterHeight = 100000;
         m_assumed_blockchain_size = 3;
         m_assumed_chain_state_size = 1;
 
-        consensus.nForkOne = 33000;
-        consensus.nForkTwo = 87948;
-        consensus.nForkThree = 204639;
-        consensus.nForkFour = 432000;
-        consensus.nTimeLimit = 2236032;
-        consensus.nNeoScryptFork = 1414346265;
+       consensus.nForkOne = std::numeric_limits<int>::max();     // изключено
+        consensus.nForkTwo = std::numeric_limits<int>::max();
+        consensus.nForkThree = std::numeric_limits<int>::max();
+        consensus.nForkFour = std::numeric_limits<int>::max();
+        consensus.nTimeLimit = std::numeric_limits<int>::max();
+        consensus.nNeoScryptFork = std::numeric_limits<uint32_t>::max();
+
 
         genesis = CreateGenesisBlock(1317972665, 2084524493, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
