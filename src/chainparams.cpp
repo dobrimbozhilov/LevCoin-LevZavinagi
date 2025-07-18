@@ -38,11 +38,18 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     genesis.hashMerkleRoot = BlockMerkleRoot(genesis);
     return genesis;
 }
-
+/*
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
     const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
     const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+    return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
+}*/
+
+static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
+{
+    const char* pszTimestamp = "Левът е безсмъртен, политиците са преходни...";
+    const CScript genesisOutputScript = CScript() << OP_DUP << OP_HASH160 << ParseHex("4d86d4fbbd4f37627cde5bc3369cd93e32e9f325") << OP_EQUALVERIFY << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -109,9 +116,13 @@ public:
         consensus.nTimeLimit = std::numeric_limits<int>::max();
         consensus.nNeoScryptFork = std::numeric_limits<uint32_t>::max();
 
-
-        genesis = CreateGenesisBlock(1721260800, 0, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1721260800, 3944752, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+        assert(consensus.hashGenesisBlock == uint256S("0x0000086b986a58e8e56d3e3de69a61044e3d30b6d3d244e5c037c6946a13a7cf"));
+        assert(genesis.hashMerkleRoot == uint256S("0x6b65c7c7c5c5279ae490924117fe979c870e68c2e7c7c17cf7b7c5e3513a2678"));
+
+        //genesis = CreateGenesisBlock(1721260800, 0, 0x1e0ffff0, 1, 50 * COIN);
+        //consensus.hashGenesisBlock = genesis.GetHash();
         //assert(consensus.hashGenesisBlock == uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"));
         //assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
@@ -123,7 +134,7 @@ public:
         vSeeds.emplace_back("coin.levcoin.net");
         vSeeds.emplace_back("coin.komentari.com");
         vSeeds.emplace_back("coin.dobribozhilov.com");
-        vSeeds.emplace_back("coin.aulaboratory.eu");
+        vSeeds.emplace_back("coin.ailaboratory.eu");
         vSeeds.emplace_back("coin.semebo.com");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 55);     // 'L'
