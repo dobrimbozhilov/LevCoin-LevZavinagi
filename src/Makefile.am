@@ -82,18 +82,18 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += feathercoind
+  bin_PROGRAMS += levcoind
 endif
 
 if BUILD_BITCOIN_CLI
-  bin_PROGRAMS += feathercoin-cli
+  bin_PROGRAMS += levcoin-cli
 endif
 if BUILD_BITCOIN_TX
-  bin_PROGRAMS += feathercoin-tx
+  bin_PROGRAMS += levcoin-tx
 endif
 if ENABLE_WALLET
 if BUILD_BITCOIN_WALLET
-  bin_PROGRAMS += feathercoin-wallet
+  bin_PROGRAMS += levcoin-wallet
 endif
 endif
 
