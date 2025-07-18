@@ -118,10 +118,11 @@ public:
         // This is fine at runtime as we'll fall back to using them as a oneshot if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.emplace_back("dnsseed.feathercoin.com");
-        vSeeds.emplace_back("dnsseed1.feathercoin.com");
-        vSeeds.emplace_back("dnsseed.alltheco.in");
-        vSeeds.emplace_back("dnsseed.bushstar.co.uk");
+        vSeeds.emplace_back("coin.levcoin.net");
+        vSeeds.emplace_back("coin.komentari.com");
+        vSeeds.emplace_back("coin.dobribozhilov.com");
+        vSeeds.emplace_back("coin.aulaboratory.eu");
+        vSeeds.emplace_back("coin.semebo.com");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 55);     // 'L'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 58);     // 'Q'
