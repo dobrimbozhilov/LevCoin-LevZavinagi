@@ -1238,6 +1238,10 @@ bool ReadRawBlockFromDisk(std::vector<uint8_t>& block, const CBlockIndex* pindex
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
+if (nHeight == 1) {
+        return 84000000 * COIN; // 80 милиона монети за първия блок
+    }
+    
     int halvings = (nHeight + 306960) / consensusParams.nSubsidyHalvingInterval;
 
     if (Params().NetworkIDString() == CBaseChainParams::REGTEST)
