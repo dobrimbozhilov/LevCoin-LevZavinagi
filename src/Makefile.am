@@ -82,24 +82,21 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += levcoind
-  levcoind_SOURCES = feathercoind.cpp some_other_files.cpp ...
+  bin_PROGRAMS += feathercoind
 endif
 
 if BUILD_BITCOIN_CLI
-  bin_PROGRAMS += levcoin-cli
-  levcoin_cli_SOURCES = feathercoin-cli.cpp ...
+  bin_PROGRAMS += feathercoin-cli
+ 
 endif
 
 if BUILD_BITCOIN_TX
-  bin_PROGRAMS += levcoin-tx
-  levcoin_tx_SOURCES = feathercoin-tx.cpp ...
+  bin_PROGRAMS += feathercoin-tx
 endif
 
 if ENABLE_WALLET
 if BUILD_BITCOIN_WALLET
-  bin_PROGRAMS += levcoin-wallet
-  levcoin_wallet_SOURCES = feathercoin-wallet.cpp ...
+  bin_PROGRAMS += feathercoin-wallet.cpp
 endif
 endif
 
